@@ -12,4 +12,8 @@ export class HomePage {
 
 constructor(public navCtrl: NavController) {}
  
+irParaNoticias(){
+  this.navCtrl.setRoot('NoticiasPage');
+}
+
 }
