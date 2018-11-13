@@ -15,5 +15,7 @@ constructor(public navCtrl: NavController) {}
 irParaNoticias(){
   this.navCtrl.setRoot('NoticiasPage');
 }
-
+irParaCadastro(){
+  this.navCtrl.push('CadastroPage');
+}
 }

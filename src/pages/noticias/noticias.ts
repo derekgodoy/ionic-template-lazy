@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NOTICIAS } from '../../config/api.config';
+import { Noticia } from '../../model/noticia';
 
 /**
  * Generated class for the NoticiasPage page.
@@ -15,7 +17,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class NoticiasPage {
 
+  public noticias: Noticia[]= NOTICIAS;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  detalheNoticia(noticiaObj: Noticia){
+    this.navCtrl.push('DetalheNoticiaPage',{'noticia': noticiaObj});
   }
 
   ionViewDidLoad() {
