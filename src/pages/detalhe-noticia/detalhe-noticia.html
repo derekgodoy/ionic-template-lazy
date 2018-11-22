@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>DetalheNoticia</ion-title>
+    <ion-title>Detalhe Noticia</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -9,12 +9,13 @@
 
 <ion-content padding>
     <ion-card>
-        <img src="{{noticia.imagem}}"/>
+        <img src="{{noticia?.img}}"/>
         <ion-card-content>
           <ion-card-title>
-            {{noticia.titulo}}
-            <p margin-top>{{noticia.conteudo}}</p>
+            {{noticia?.titulo}}
+            <p>{{noticia?.data}}</p>
             </ion-card-title>
+            <p margin-top text-justify>{{noticia?.conteudo}}</p>
         </ion-card-content>
       </ion-card>
 </ion-content>

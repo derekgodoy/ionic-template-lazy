@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Noticia } from '../../model/noticia';
+import { NoticiaService } from '../../service/noticia.service';
 
 @IonicPage()
 @Component({
@@ -11,8 +12,8 @@ export class DetalheNoticiaPage {
 
   noticia: Noticia;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.noticia=this.navParams.get('noticia');
+  constructor(public navCtrl: NavController, public navParams: NavParams, public noticiasService: NoticiaService) {
+    this.noticiasService.getNoticia(this.navParams.get('id')).subscribe(response => {this.noticia=response[0];});
   }
 
   ionViewDidLoad() {

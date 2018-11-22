@@ -12,14 +12,15 @@
 
 <ion-content padding>
 
-  <ion-card *ngFor="let n of noticias" (click)="detalheNoticia(n)">
+  <ion-card *ngFor="let n of noticias" (click)="detalheNoticia(n.id)">
     <figure text-center>
-    <img src="{{n.imagem}}"/>
+    <img src="{{n.img}}"/>
     </figure>
     <ion-card-content>
-      <ion-card-title>
+      <ion-card-title text-center>
         {{n.titulo}}
         </ion-card-title>
+        <h3>{{n.resumo}}</h3>
     </ion-card-content>
   </ion-card>
 

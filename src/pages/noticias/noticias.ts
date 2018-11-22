@@ -1,14 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { NOTICIAS } from '../../config/api.config';
 import { Noticia } from '../../model/noticia';
-
-/**
- * Generated class for the NoticiasPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { NoticiaService } from '../../service/noticia.service';
 
 @IonicPage()
 @Component({
@@ -17,17 +10,20 @@ import { Noticia } from '../../model/noticia';
 })
 export class NoticiasPage {
 
-  public noticias: Noticia[]= NOTICIAS;
+  public noticias: Noticia[]= [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public noticiasService: NoticiaService) {
+   
+    this.noticiasService.getNoticias()
+    .subscribe(respose => {
+      console.log(respose);
+      this.noticias=respose; 
+    })
+
   }
 
-  detalheNoticia(noticiaObj: Noticia){
-    this.navCtrl.push('DetalheNoticiaPage',{'noticia': noticiaObj});
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NoticiasPage');
+  detalheNoticia(id: string){
+    this.navCtrl.push('DetalheNoticiaPage',{'id': id});
   }
 
 }
